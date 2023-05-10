@@ -1,12 +1,6 @@
-function Header(props){
-
-    const { titulo } = props
+export const Header = () =>{
     
-    return (
-        <h1>
-            {titulo}
-        </h1>
-    )
+    return <header>
+        <h1> <a href="/">To Do App</a></h1>
+    </header>
 }
-
-export default Header

@@ -1,15 +1,53 @@
-function Task(props){
+import { useState } from "react";
 
-    const { id, descripcion } = props
+export const Task = (props) => {
+    const {id, descripcion, completado, onEliminar, onEditar, onCompletar} = props;
+    
+    const [modoEdicion, setModoEdicion] = useState (false);
+    const [nuevaDescripcion, setNuevaDescripcion] = useState(descripcion);
+    const [estaCompletado, setEstaCompletado] = useState(completado);
+
+    const handleEliminar = () => {
+        console.log("1")
+        onEliminar(id);
+    };
+
+    const handleEditar = () => {
+        if (modoEdicion) {
+            onEditar(id, nuevaDescripcion);
+            setModoEdicion(false);
+        }   else {
+            setModoEdicion(true);
+        }
+    };
+
+    const handlechange = (evento) => {
+        setNuevaDescripcion (evento.target.value);
+    };
+
+    const handleCompletado = () => {
+        setEstaCompletado(!estaCompletado);
+         onCompletar(id, estaCompletado);
+        
+    };
+
     
     return (
-        <div>
-            <input id={id} type="checkbox" />
-            <label htmlFor={id}>{descripcion}</label>
-            <button>Editar</button>
-            <button>Borrar</button>
-        </div>
-    )
-}
+        <li>
+        <input id={id} type="checkbox" checked={estaCompletado} onChange={handleCompletado}/>
+      {modoEdicion ? ( 
+        <input
+         type="text"
+         value={nuevaDescripcion}
+         onChange={handlechange}
+        />
 
-export default Task
+      ) : (
+        <label htmlFor={id}>{descripcion}</label>
+      )}
+      <br />
+      <button onClick={handleEditar}>{modoEdicion ? "Guardar" : "Editar"}</button>
+      <button onClick={()=>handleEliminar()}>Eliminar</button>
+        </li>
+    );
+};

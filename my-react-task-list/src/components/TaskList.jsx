@@ -1,21 +1,32 @@
-import Task from "./Task"
+import { useState } from "react";
+import { Task } from "./Task";
 
-function TaskList(props){
-
-    const { lista } = props
+export const TaskList = (props) => {
+    const {pendientes, onEliminar, onEditar, onCompletar} = props;
     
-    return (
-        <div>
-          {
-           lista.map((tarea)=> (
-            <Task
-              id={tarea.id} 
-              descripcion={tarea.nombre} 
-            />
-           ))
-          }  
-        </div>
-    )
-}
+    const handleElinar = (id) => {
+        console.log(id)
+        onEliminar(id);
+    }
 
-export default TaskList
+    const handleEditar = (id, nuevaDescripcion)=> {
+        onEditar(id, nuevaDescripcion);
+    }
+
+
+    return (
+        <ul>
+            {pendientes.map((tarea) => (
+            <Task
+                key={tarea.id}
+                id={tarea.id}
+                descripcion={tarea.descripcion}
+                completado={tarea.completado}
+                onEliminar={handleElinar}
+                onEditar={handleEditar}
+                onCompletar={onCompletar}
+            />
+            ))}
+        </ul>
+    );
+  }
