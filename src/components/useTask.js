@@ -24,7 +24,7 @@ const agregar = evento => {
       setNuevaTarea("");
     }
 }
-
+// Hecho
 // Borrar tareas
 const eliminarTarea = (id,) => {
     const nuevasTareas = listaTareas.filter(tarea => tarea.id !== id);
