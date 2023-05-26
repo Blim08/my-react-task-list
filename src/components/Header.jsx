@@ -1,6 +1,5 @@
-export const Header = () =>{
-    
-    return <header>
-        <h1> <a href="/">To Do App</a></h1>
-    </header>
-}
+function Header() {
+    return <h1 className="cabeza">To do App</h1>;
+  }
+  
+  export default Header;
