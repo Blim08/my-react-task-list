@@ -1,10 +1,12 @@
 import MainDiv from './components/MainDiv.jsx'
+
 function App() {
 
-  return (
+  return (  
     <div className="container mainTask">
       <MainDiv/>
     </div>
   )
 }
-export default App;
+
+export default App

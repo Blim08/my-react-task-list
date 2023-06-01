@@ -14,4 +14,4 @@ const TaskList = ({onClickDelete, onClickRadio, arrayTask, onClickUpdate}) => {
   )
 }
 
-export default TaskList;
+export default TaskList

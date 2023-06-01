@@ -48,7 +48,7 @@ export const Modal = ({ dataTask, onClickUpdate }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLongTitle">
-              Editar nombre tarea
+              Editar tarea
             </h5>
             <button
               type="button"
@@ -84,7 +84,7 @@ export const Modal = ({ dataTask, onClickUpdate }) => {
               data-dismiss="modal"
               onClick={() => handleChangeClose()}
             >
-              Eliminar
+              Cancelar
             </button>
             <button
               type="button"
